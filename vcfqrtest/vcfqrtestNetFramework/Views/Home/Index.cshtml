@@ -1,0 +1,161 @@
+﻿@model vcfqrtestNetFramework.Models.VCardPageModelRequest
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<link href="~/Content/flag.css" rel="stylesheet" />
+
+<hr />
+
+<div class="row">
+    <div class="col-sm-1 col-md-1 col-lg-1">
+        <a href="/Home/Change?languageSelect=tr">
+            <img src="~/img/flag_placeholder.png" class="flag flag-tr" />
+        </a>
+    </div>
+    <div class="col-sm-1 col-md-1 col-lg-1">
+        <a href="/Home/Change?languageSelect=en">
+            <img src="~/img/flag_placeholder.png" class="flag flag-gb" />
+        </a>
+    </div>
+    <div class="col-sm-1 col-md-1 col-lg-1">
+        <a href="/Home/Change?languageSelect=de">
+            <img src="~/img/flag_placeholder.png" class="flag flag-de" />
+        </a>
+    </div>
+    <div class="col-sm-1 col-md-1 col-lg-1">
+        <a href="/Home/Change?languageSelect=ru">
+            <img src="~/img/flag_placeholder.png" class="flag flag-ru" />
+        </a>
+    </div>
+</div>
+
+<hr />
+
+<div class="container">
+    <div class="row">
+        <a class="btn btn-info" href="/Home/Index">@dil.Resource.YeniQRGiris</a>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="alert alert-success" role="alert" hidden>
+            Kopyalandı
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="form-group">
+                            @Html.CheckBoxFor(x => x.Logo) Logo Ekle
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.FirstName, new { @class = "form-control", placeHolder = dil.Resource.Ad })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.LastName, new { @class = "form-control", placeHolder = dil.Resource.Soyad })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.Mobile, new { @class = "form-control", placeHolder = dil.Resource.MobilTelefon })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.Phone, new { @class = "form-control", placeHolder = dil.Resource.Telefon })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.JobTitle, new { @class = "form-control", placeHolder = "JobTitle" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.Email, new { @class = "form-control", placeHolder = "Email" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.City, new { @class = "form-control", placeHolder = "City" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.CountryName, new { @class = "form-control", placeHolder = "CountryName" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.HomePage, new { @class = "form-control", placeHolder = "HomePage" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.Zip, new { @class = "form-control", placeHolder = "Zip" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.Organization, new { @class = "form-control", placeHolder = "Organization" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.VCard.StreetAddress, new { @class = "form-control", placeHolder = "StreetAddress" })
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-lg btn-block">@dil.Resource.QROlustur</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    @if (ViewBag.QrCode != null)
+                    {
+                        var base64 = Convert.ToBase64String(ViewBag.QrCode);
+                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+                        <div id="qrDiv">
+                            <img src="@imgSrc"/>
+                        </div>
+
+                        <button class="btn btn-link" onclick="selectElementContents(document.getElementById('qrDiv'));">Kopyala</button>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $('.alert').hide();
+
+    function selectElementContents(el) {
+        var body = document.body, range, sel;
+        if (document.createRange && window.getSelection) {
+            range = document.createRange();
+            sel = window.getSelection();
+            sel.removeAllRanges();
+            try {
+                range.selectNodeContents(el);
+                sel.addRange(range);
+            } catch (e) {
+                range.selectNode(el);
+                sel.addRange(range);
+            }
+            document.execCommand('copy');
+        } else if (body.createTextRange) {
+            range = body.createTextRange();
+            range.moveToElementText(el);
+            range.select();
+            range.execCommand('copy');
+        }
+
+        $('.alert').show(500);
+
+        setTimeout(function () {
+            clearSelection();
+            $('.alert').hide(500);
+        }, 3000);
+    }
+
+    function clearSelection() {
+        if (window.getSelection) { window.getSelection().removeAllRanges(); }
+        else if (document.selection) { document.selection.empty(); }
+    }
+</script>
+

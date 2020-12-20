@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B997800A-95A6-4DCB-9A20-4077B0A6E5B4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>vcfqrtestNetFramework</RootNamespace>
+    <AssemblyName>vcfqrtestNetFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bytescout.BarCode.QRCode, Version=1.4.0.1147, Culture=neutral, PublicKeyToken=f7dd1bd9d40a50eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bytescout.BarCode.QRCode.1.4.0.1147\lib\net40\Bytescout.BarCode.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Gma.QrCodeNet.0.4.1.2\lib\net40\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\QRCode_MVC\QRCode_MVC\bin\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Thought.vCards, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Thought.vCards.1.0.9\lib\net40\Thought.vCards.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.2\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.2\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\ImageExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Setting.cs" />
+    <Compile Include="Models\VCard.cs" />
+    <Compile Include="Models\VCardPageModelRequest.cs" />
+    <Compile Include="Models\VCardPageModelResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource\Resource.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\Resource.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource\Resource.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.ru.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\flag.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="History.txt" />
+    <Content Include="img\flags_responsive.png" />
+    <Content Include="img\flags_responsive_uncompressed.png" />
+    <Content Include="img\flag_placeholder.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\QrCode.jpg" />
+    <Content Include="img\separate\ad.png" />
+    <Content Include="img\separate\ae.png" />
+    <Content Include="img\separate\af.png" />
+    <Content Include="img\separate\ag.png" />
+    <Content Include="img\separate\ai.png" />
+    <Content Include="img\separate\al.png" />
+    <Content Include="img\separate\am.png" />
+    <Content Include="img\separate\an.png" />
+    <Content Include="img\separate\ao.png" />
+    <Content Include="img\separate\aq.png" />
+    <Content Include="img\separate\ar.png" />
+    <Content Include="img\separate\as.png" />
+    <Content Include="img\separate\at.png" />
+    <Content Include="img\separate\au.png" />
+    <Content Include="img\separate\aw.png" />
+    <Content Include="img\separate\az.png" />
+    <Content Include="img\separate\ba.png" />
+    <Content Include="img\separate\bb.png" />
+    <Content Include="img\separate\bd.png" />
+    <Content Include="img\separate\be.png" />
+    <Content Include="img\separate\bf.png" />
+    <Content Include="img\separate\bg.png" />
+    <Content Include="img\separate\bh.png" />
+    <Content Include="img\separate\bi.png" />
+    <Content Include="img\separate\bj.png" />
+    <Content Include="img\separate\bm.png" />
+    <Content Include="img\separate\bn.png" />
+    <Content Include="img\separate\bo.png" />
+    <Content Include="img\separate\br.png" />
+    <Content Include="img\separate\bs.png" />
+    <Content Include="img\separate\bt.png" />
+    <Content Include="img\separate\bv.png" />
+    <Content Include="img\separate\bw.png" />
+    <Content Include="img\separate\by.png" />
+    <Content Include="img\separate\bz.png" />
+    <Content Include="img\separate\ca.png" />
+    <Content Include="img\separate\cc.png" />
+    <Content Include="img\separate\cd.png" />
+    <Content Include="img\separate\cf.png" />
+    <Content Include="img\separate\cg.png" />
+    <Content Include="img\separate\ch.png" />
+    <Content Include="img\separate\ci.png" />
+    <Content Include="img\separate\ck.png" />
+    <Content Include="img\separate\cl.png" />
+    <Content Include="img\separate\cm.png" />
+    <Content Include="img\separate\cn.png" />
+    <Content Include="img\separate\co.png" />
+    <Content Include="img\separate\cr.png" />
+    <Content Include="img\separate\cu.png" />
+    <Content Include="img\separate\cv.png" />
+    <Content Include="img\separate\cx.png" />
+    <Content Include="img\separate\cy.png" />
+    <Content Include="img\separate\cz.png" />
+    <Content Include="img\separate\de.png" />
+    <Content Include="img\separate\dj.png" />
+    <Content Include="img\separate\dk.png" />
+    <Content Include="img\separate\dm.png" />
+    <Content Include="img\separate\do.png" />
+    <Content Include="img\separate\dz.png" />
+    <Content Include="img\separate\ec.png" />
+    <Content Include="img\separate\ee.png" />
+    <Content Include="img\separate\eg.png" />
+    <Content Include="img\separate\eh.png" />
+    <Content Include="img\separate\er.png" />
+    <Content Include="img\separate\es.png" />
+    <Content Include="img\separate\et.png" />
+    <Content Include="img\separate\fi.png" />
+    <Content Include="img\separate\fj.png" />
+    <Content Include="img\separate\fk.png" />
+    <Content Include="img\separate\fm.png" />
+    <Content Include="img\separate\fo.png" />
+    <Content Include="img\separate\fr.png" />
+    <Content Include="img\separate\ga.png" />
+    <Content Include="img\separate\gd.png" />
+    <Content Include="img\separate\ge.png" />
+    <Content Include="img\separate\gf.png" />
+    <Content Include="img\separate\gh.png" />
+    <Content Include="img\separate\gi.png" />
+    <Content Include="img\separate\gl.png" />
+    <Content Include="img\separate\gm.png" />
+    <Content Include="img\separate\gn.png" />
+    <Content Include="img\separate\gp.png" />
+    <Content Include="img\separate\gq.png" />
+    <Content Include="img\separate\gr.png" />
+    <Content Include="img\separate\gs.png" />
+    <Content Include="img\separate\gt.png" />
+    <Content Include="img\separate\gu.png" />
+    <Content Include="img\separate\gw.png" />
+    <Content Include="img\separate\gy.png" />
+    <Content Include="img\separate\hk.png" />
+    <Content Include="img\separate\hm.png" />
+    <Content Include="img\separate\hn.png" />
+    <Content Include="img\separate\hr.png" />
+    <Content Include="img\separate\ht.png" />
+    <Content Include="img\separate\hu.png" />
+    <Content Include="img\separate\id.png" />
+    <Content Include="img\separate\ie.png" />
+    <Content Include="img\separate\il.png" />
+    <Content Include="img\separate\in.png" />
+    <Content Include="img\separate\io.png" />
+    <Content Include="img\separate\iq.png" />
+    <Content Include="img\separate\ir.png" />
+    <Content Include="img\separate\is.png" />
+    <Content Include="img\separate\it.png" />
+    <Content Include="img\separate\jm.png" />
+    <Content Include="img\separate\jo.png" />
+    <Content Include="img\separate\jp.png" />
+    <Content Include="img\separate\ke.png" />
+    <Content Include="img\separate\kg.png" />
+    <Content Include="img\separate\kh.png" />
+    <Content Include="img\separate\ki.png" />
+    <Content Include="img\separate\km.png" />
+    <Content Include="img\separate\kn.png" />
+    <Content Include="img\separate\kp.png" />
+    <Content Include="img\separate\kr.png" />
+    <Content Include="img\separate\kw.png" />
+    <Content Include="img\separate\ky.png" />
+    <Content Include="img\separate\kz.png" />
+    <Content Include="img\separate\la.png" />
+    <Content Include="img\separate\lb.png" />
+    <Content Include="img\separate\lc.png" />
+    <Content Include="img\separate\li.png" />
+    <Content Include="img\separate\lk.png" />
+    <Content Include="img\separate\lr.png" />
+    <Content Include="img\separate\ls.png" />
+    <Content Include="img\separate\lt.png" />
+    <Content Include="img\separate\lu.png" />
+    <Content Include="img\separate\lv.png" />
+    <Content Include="img\separate\ly.png" />
+    <Content Include="img\separate\ma.png" />
+    <Content Include="img\separate\mc.png" />
+    <Content Include="img\separate\md.png" />
+    <Content Include="img\separate\me.png" />
+    <Content Include="img\separate\mg.png" />
+    <Content Include="img\separate\mh.png" />
+    <Content Include="img\separate\mk.png" />
+    <Content Include="img\separate\ml.png" />
+    <Content Include="img\separate\mm.png" />
+    <Content Include="img\separate\mn.png" />
+    <Content Include="img\separate\mo.png" />
+    <Content Include="img\separate\mp.png" />
+    <Content Include="img\separate\mq.png" />
+    <Content Include="img\separate\mr.png" />
+    <Content Include="img\separate\ms.png" />
+    <Content Include="img\separate\mt.png" />
+    <Content Include="img\separate\mu.png" />
+    <Content Include="img\separate\mv.png" />
+    <Content Include="img\separate\mw.png" />
+    <Content Include="img\separate\mx.png" />
+    <Content Include="img\separate\my.png" />
+    <Content Include="img\separate\mz.png" />
+    <Content Include="img\separate\na.png" />
+    <Content Include="img\separate\nc.png" />
+    <Content Include="img\separate\ne.png" />
+    <Content Include="img\separate\nf.png" />
+    <Content Include="img\separate\ng.png" />
+    <Content Include="img\separate\ni.png" />
+    <Content Include="img\separate\nl.png" />
+    <Content Include="img\separate\no-flag.png" />
+    <Content Include="img\separate\no.png" />
+    <Content Include="img\separate\np.png" />
+    <Content Include="img\separate\nr.png" />
+    <Content Include="img\separate\nu.png" />
+    <Content Include="img\separate\nz.png" />
+    <Content Include="img\separate\om.png" />
+    <Content Include="img\separate\pa.png" />
+    <Content Include="img\separate\pe.png" />
+    <Content Include="img\separate\pf.png" />
+    <Content Include="img\separate\pg.png" />
+    <Content Include="img\separate\ph.png" />
+    <Content Include="img\separate\pk.png" />
+    <Content Include="img\separate\pl.png" />
+    <Content Include="img\separate\pm.png" />
+    <Content Include="img\separate\pn.png" />
+    <Content Include="img\separate\pr.png" />
+    <Content Include="img\separate\pt.png" />
+    <Content Include="img\separate\pw.png" />
+    <Content Include="img\separate\py.png" />
+    <Content Include="img\separate\qa.png" />
+    <Content Include="img\separate\re.png" />
+    <Content Include="img\separate\ro.png" />
+    <Content Include="img\separate\rs.png" />
+    <Content Include="img\separate\ru.png" />
+    <Content Include="img\separate\rw.png" />
+    <Content Include="img\separate\sa.png" />
+    <Content Include="img\separate\sb.png" />
+    <Content Include="img\separate\sc.png" />
+    <Content Include="img\separate\sd.png" />
+    <Content Include="img\separate\se.png" />
+    <Content Include="img\separate\sg.png" />
+    <Content Include="img\separate\sh.png" />
+    <Content Include="img\separate\si.png" />
+    <Content Include="img\separate\sj.png" />
+    <Content Include="img\separate\sk.png" />
+    <Content Include="img\separate\sl.png" />
+    <Content Include="img\separate\sm.png" />
+    <Content Include="img\separate\sn.png" />
+    <Content Include="img\separate\so.png" />
+    <Content Include="img\separate\sr.png" />
+    <Content Include="img\separate\ss.png" />
+    <Content Include="img\separate\st.png" />
+    <Content Include="img\separate\sv.png" />
+    <Content Include="img\separate\sy.png" />
+    <Content Include="img\separate\sz.png" />
+    <Content Include="img\separate\tc.png" />
+    <Content Include="img\separate\td.png" />
+    <Content Include="img\separate\tf.png" />
+    <Content Include="img\separate\tg.png" />
+    <Content Include="img\separate\th.png" />
+    <Content Include="img\separate\tj.png" />
+    <Content Include="img\separate\tk.png" />
+    <Content Include="img\separate\tl.png" />
+    <Content Include="img\separate\tm.png" />
+    <Content Include="img\separate\tn.png" />
+    <Content Include="img\separate\to.png" />
+    <Content Include="img\separate\tp.png" />
+    <Content Include="img\separate\tr.png" />
+    <Content Include="img\separate\tt.png" />
+    <Content Include="img\separate\tv.png" />
+    <Content Include="img\separate\tw.png" />
+    <Content Include="img\separate\ty.png" />
+    <Content Include="img\separate\tz.png" />
+    <Content Include="img\separate\ua.png" />
+    <Content Include="img\separate\ug.png" />
+    <Content Include="img\separate\uk.png" />
+    <Content Include="img\separate\um.png" />
+    <Content Include="img\separate\us.png" />
+    <Content Include="img\separate\uy.png" />
+    <Content Include="img\separate\uz.png" />
+    <Content Include="img\separate\va.png" />
+    <Content Include="img\separate\vc.png" />
+    <Content Include="img\separate\ve.png" />
+    <Content Include="img\separate\vg.png" />
+    <Content Include="img\separate\vi.png" />
+    <Content Include="img\separate\vn.png" />
+    <Content Include="img\separate\vu.png" />
+    <Content Include="img\separate\wf.png" />
+    <Content Include="img\separate\ws.png" />
+    <Content Include="img\separate\ye.png" />
+    <Content Include="img\separate\za.png" />
+    <Content Include="img\separate\zm.png" />
+    <Content Include="img\separate\zr.png" />
+    <Content Include="img\separate\zw.png" />
+    <Content Include="KnownIssues.txt" />
+    <Content Include="License.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource\Resource.de.resx">
+      <CustomToolNamespace>dil</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Resource.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>dil</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\Resource.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.ru.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>dil</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55518</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55518/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
